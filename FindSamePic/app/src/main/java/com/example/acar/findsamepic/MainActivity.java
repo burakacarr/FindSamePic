@@ -1,11 +1,16 @@
 package com.example.acar.findsamepic;
 
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.CountDownTimer;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Random;
 import java.util.Timer;
@@ -15,13 +20,15 @@ public class MainActivity extends AppCompatActivity {
     ImageView ımageView1,ımageView2,ımageView3,ımageView4,ımageView5,ımageView6,ımageView7,ımageView8,ımageView9,ımageView10,ımageView11,ımageView12;
     ImageView[] ımageViews;
     int geri;
+    TextView tv;
     Random r = new Random();
     int [] idler;
     int [] konumlar = new int[12];
     int [] resimler1=new int[6];
     int [] resimler2=new int[6];
     int m;
-
+    int hamle_sayisi =0;
+    int sayac=6;
     int durum;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +37,8 @@ public class MainActivity extends AppCompatActivity {
 
         geri=-1;
         durum=0;
-
+        hamle_sayisi=0;
+        tv = (TextView)findViewById(R.id.tv);
         ımageView1 = (ImageView)findViewById(R.id.imageView);
         ımageView2 = (ImageView)findViewById(R.id.imageView2);
         ımageView3 = (ImageView)findViewById(R.id.imageView3);
@@ -44,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
         ımageView11 = (ImageView)findViewById(R.id.imageView11);
         ımageView12 = (ImageView)findViewById(R.id.imageView12);
         ımageViews = new ImageView[]{ ımageView1,ımageView2,ımageView3,ımageView4,ımageView5,ımageView6,ımageView7,ımageView8,ımageView9,ımageView10,ımageView11,ımageView12};
+        for(ImageView ımage: ımageViews){
+            ımage.setVisibility(View.VISIBLE);}
         idler = new int[]{R.drawable.r1,R.drawable.r2,R.drawable.r3,R.drawable.r4,R.drawable.r5,R.drawable.r6};
 
         //RandomAT();
@@ -106,8 +116,11 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void ResimDegistir(final int no){
-        durum=durum+1;
 
+
+        hamle_sayisi++;
+        durum=durum+1;
+        tv.setText("Hamle Sayısı: "+hamle_sayisi);
 
 
         if(durum==2){
@@ -116,21 +129,59 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onTick(long millisUntilFinished) {
                     ımageViews[no].setImageResource(konumlar[no]);
+                    for(ImageView ımage: ımageViews){
+                        ımage.setClickable(false);
+                    }
                 }
 
                 @Override
                 public void onFinish() {
+
                     if(konumlar[no]==konumlar[geri]){
+                        sayac--;
+
+                        Toast.makeText(getApplicationContext(),"Kalan Cift :"+sayac,Toast.LENGTH_LONG).show();
                         ımageViews[no].setImageResource(0);
                         ımageViews[geri].setImageResource(0);
+                        ımageViews[no].setVisibility(View.INVISIBLE);
+                        ımageViews[geri].setVisibility(View.INVISIBLE);
                         durum=0;
                         geri=-1;
+                        if(sayac==0){
+                            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                            builder.setTitle("Oyun Bitti");
+                            builder.setMessage("Oyunu "+hamle_sayisi+" hamlede tamamladınız.");
+                            builder.setNegativeButton("Çık", new DialogInterface.OnClickListener(){
+                                public void onClick(DialogInterface dialog, int id) {
+                                    finish();
+                                    System.exit(0);
+
+                                }
+                            });
+
+
+                            builder.setPositiveButton("Yeniden Oyna", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    Intent intent = getIntent();
+                                    finish();
+                                    startActivity(intent);
+
+                                }
+                            });
+
+
+                            builder.show();
+
+                        }
                     }
                     else{
                         ımageViews[no].setImageResource(R.drawable.soru);
                         ımageViews[geri].setImageResource(R.drawable.soru);
                         durum=0;
                         geri=-1;
+                    }
+                    for(ImageView ımage: ımageViews){
+                        ımage.setClickable(true);
                     }
                 }
             }.start();
