@@ -1,4 +1,4 @@
-package com.example.acar.findsavepitc;
+package com.example.acar.findsamepic;
 
 import org.junit.Test;
 

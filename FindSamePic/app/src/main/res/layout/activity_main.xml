@@ -30,18 +30,18 @@
                 android:layout_width="100dp"
                 android:layout_height="150dp"
                 android:layout_weight="1"
-                android:onClick="ResimDegistir"
+                android:onClick="b1"
                 app:srcCompat="@drawable/soru" />
 
             <ImageView
                 android:id="@+id/imageView2"
                 android:layout_width="100dp"
-                android:onClick="ResimDegistir"
+                android:onClick="b2"
                 android:layout_height="150dp"
                 android:layout_weight="1"
                 app:srcCompat="@drawable/soru" />
             <ImageView
-                android:onClick="ResimDegistir"
+                android:onClick="b3"
                 android:id="@+id/imageView3"
                 android:layout_width="100dp"
                 android:layout_height="150dp"
@@ -50,13 +50,12 @@
         </LinearLayout>
 
         <LinearLayout
-            android:onClick="ResimDegistir"
             android:layout_width="match_parent"
             android:layout_height="112dp"
             android:orientation="horizontal">
 
             <ImageView
-                android:onClick="ResimDegistir"
+                android:onClick="b4"
                 android:id="@+id/imageView4"
                 android:layout_width="100dp"
                 android:layout_height="150dp"
@@ -64,7 +63,7 @@
                 app:srcCompat="@drawable/soru" />
 
             <ImageView
-                android:onClick="ResimDegistir"
+                android:onClick="b5"
                 android:id="@+id/imageView5"
                 android:layout_width="100dp"
                 android:layout_height="150dp"
@@ -72,7 +71,7 @@
                 app:srcCompat="@drawable/soru" />
 
             <ImageView
-                android:onClick="ResimDegistir"
+                android:onClick="b6"
                 android:id="@+id/imageView6"
                 android:layout_width="100dp"
                 android:layout_height="150dp"
@@ -81,13 +80,12 @@
         </LinearLayout>
 
         <LinearLayout
-            android:onClick="ResimDegistir"
             android:layout_width="match_parent"
             android:layout_height="119dp"
             android:orientation="horizontal">
 
             <ImageView
-                android:onClick="ResimDegistir"
+                android:onClick="b7"
                 android:id="@+id/imageView7"
                 android:layout_width="100dp"
                 android:layout_height="150dp"
@@ -95,7 +93,7 @@
                 app:srcCompat="@drawable/soru" />
 
             <ImageView
-                android:onClick="ResimDegistir"
+                android:onClick="b8"
                 android:id="@+id/imageView8"
                 android:layout_width="100dp"
                 android:layout_height="150dp"
@@ -103,7 +101,7 @@
                 app:srcCompat="@drawable/soru" />
 
             <ImageView
-                android:onClick="ResimDegistir"
+                android:onClick="b9"
                 android:id="@+id/imageView9"
                 android:layout_width="100dp"
                 android:layout_height="150dp"
@@ -117,7 +115,7 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:onClick="ResimDegistir"
+                android:onClick="b10"
                 android:id="@+id/imageView10"
                 android:layout_width="100dp"
                 android:layout_height="150dp"
@@ -125,7 +123,7 @@
                 app:srcCompat="@drawable/soru" />
 
             <ImageView
-                android:onClick="ResimDegistir"
+                android:onClick="b11"
                 android:id="@+id/imageView11"
                 android:layout_width="100dp"
                 android:layout_height="150dp"
@@ -133,7 +131,7 @@
                 app:srcCompat="@drawable/soru" />
 
             <ImageView
-                android:onClick="ResimDegistir"
+                android:onClick="b12"
                 android:id="@+id/imageView12"
                 android:layout_width="100dp"
                 android:layout_height="150dp"

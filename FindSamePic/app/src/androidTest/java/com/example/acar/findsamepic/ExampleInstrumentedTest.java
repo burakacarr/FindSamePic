@@ -1,4 +1,4 @@
-package com.example.acar.findsavepitc;
+package com.example.acar.findsamepic;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.example.acar.findsavepitc", appContext.getPackageName());
+        assertEquals("com.example.acar.findsamepic", appContext.getPackageName());
     }
 }
